@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lokesh Surampudi | Elite Personal Training</title>
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --card-bg: #1e293b;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      padding: 80px 20px;
+      text-align: center;
+      border-bottom: 1px solid #334155;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      margin: 0 0 10px 0;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-title span {
+      color: var(--primary);
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--primary);
+      color: #0f172a;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .price-card {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 40px 30px;
+      text-align: center;
+      position: relative;
+    }
+
+    .price-card.featured {
+      border-color: var(--primary);
+      transform: scale(1.03);
+    }
+
+    .badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--primary);
+      color: #0f172a;
+      padding: 4px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .plan-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+    }
+
+    .plan-price {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+    }
+
+    .plan-price span {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px 0;
+      text-align: left;
+    }
+
+    .features-list li {
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+    }
+
+    .features-list li::before {
+      content: "✓";
+      color: var(--primary);
+      margin-right: 10px;
+      font-weight: bold;
+    }
+
+    .portal-section {
+      background-color: var(--card-bg);
+      border: 1px solid #334155;
+      border-radius: 16px;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 580px;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      border-top: 1px solid #334155;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="hero-title">Lokesh <span>Surampudi</span></h1>
+    <p class="hero-subtitle">Results-driven, individual strength coaching built entirely around your lifestyle and performance metrics.</p>
+    <a href="#booking-portal" class="btn">Book Scheduled Session</a>
+  </header>
+
+  <div class="container">
+    <h2 class="section-title">Coaching Options & Programs</h2>
+    
+    <div class="pricing-grid">
+      <!-- Plan 1 -->
+      <div class="price-card">
+        <h3 class="plan-name">Single Assessment</h3>
+        <div class="plan-price">₹1,500 <span>/ session</span></div>
+        <ul class="features-list">
+          <li>Movement pattern screen</li>
+          <li>Initial physical capacity test</li>
+          <li>Custom goals roadmap definition</li>
+        </ul>
+        <a href="https://wa.me." target="_blank" class="btn" style="background: transparent; border: 2px solid #334155; color: white;">Inquire Now</a>
+      </div>
+
+      <!-- Plan 2 (Featured 12 Session Tracker Package) -->
+      <div class="price-card featured">
+        <div class="badge">Most Popular</div>
+        <h3 class="plan-name">Monthly Transformation</h3>
+        <div class="plan-price">₹12,000 <span>/ month</span></div>
+        <ul class="features-list">
+          <li><strong>12 Loaded Custom Sessions</strong></li>
+          <li>Direct calendar reservation code</li>
+          <li>Progress metric auditing</li>
+          <li>Nutritional guidance framework</li>
+        </ul>
+        <a href="https://wa.me." target="_blank" class="btn">Buy Package</a>
+      </div>
+    </div>
+
+    <!-- Booking Portal Section -->
+    <h2 class="section-title" id="booking-portal">Client Scheduling Center</h2>
+    <div class="portal-section">
+      <!-- Integrated Google Web App Module -->
+      <iframe src="https://script.google.com/macros/s/AKfycbwd5vTo5niUl35KpSvKJyVJju0bU-6UUAdQcUY1mbTRcxH24vrLvK2wxop2ninBUGTvuw/exec"></iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Lokesh Surampudi Coaching. All Rights Reserved. Managed via Google Automation System.</p>
+  </footer>
+
+</body>
+</html>
