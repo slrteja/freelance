@@ -1,228 +1,296 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
+  <base target="_top">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lokesh Surampudi | Elite Personal Training</title>
   <style>
-    :root {
-      --bg-dark: #0f172a;
-      --card-bg: #1e293b;
-      --primary: #38bdf8;
-      --primary-hover: #0284c7;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-    }
-    
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-main);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-
-    header {
-      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
-      padding: 80px 20px;
-      text-align: center;
-      border-bottom: 1px solid #334155;
-    }
-
-    .hero-title {
-      font-size: 3rem;
-      font-weight: 800;
-      margin: 0 0 10px 0;
-      letter-spacing: -0.05em;
-    }
-
-    .hero-title span {
-      color: var(--primary);
-    }
-
-    .hero-subtitle {
-      font-size: 1.25rem;
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto 30px auto;
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: var(--primary);
-      color: #0f172a;
-      padding: 12px 32px;
-      border-radius: 8px;
-      font-weight: 700;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-
-    .btn:hover {
-      background-color: var(--primary-hover);
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 60px 20px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 40px;
-    }
-
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      margin-bottom: 60px;
-    }
-
-    .price-card {
-      background-color: var(--card-bg);
-      border: 1px solid #334155;
-      border-radius: 16px;
-      padding: 40px 30px;
-      text-align: center;
-      position: relative;
-    }
-
-    .price-card.featured {
-      border-color: var(--primary);
-      transform: scale(1.03);
-    }
-
-    .badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: var(--primary);
-      color: #0f172a;
-      padding: 4px 16px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 800;
-      text-transform: uppercase;
-    }
-
-    .plan-name {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 0 0 10px 0;
-    }
-
-    .plan-price {
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .plan-price span {
-      font-size: 1rem;
-      color: var(--text-muted);
-    }
-
-    .features-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 30px 0;
-      text-align: left;
-    }
-
-    .features-list li {
-      margin-bottom: 12px;
-      color: var(--text-muted);
-      display: flex;
-      align-items: center;
-    }
-
-    .features-list li::before {
-      content: "✓";
-      color: var(--primary);
-      margin-right: 10px;
-      font-weight: bold;
-    }
-
-    .portal-section {
-      background-color: var(--card-bg);
-      border: 1px solid #334155;
-      border-radius: 16px;
-      padding: 40px 20px;
-      text-align: center;
-    }
-
-    iframe {
-      width: 100%;
-      height: 580px;
-      border: none;
-      border-radius: 8px;
-      background: transparent;
-    }
-
-    footer {
-      text-align: center;
-      padding: 40px 20px;
-      color: var(--text-muted);
-      font-size: 0.875rem;
-      border-top: 1px solid #334155;
-    }
+    :root { --bg: #0f172a; --card: #1e293b; --accent: #38bdf8; --text: #f8fafc; --muted: #94a3b8; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; }
+    nav { background: #1e1b4b; padding: 12px; display: flex; justify-content: center; gap: 10px; border-bottom: 1px solid #334155; }
+    nav button { background: transparent; border: none; color: var(--text); padding: 8px 16px; font-weight: 600; cursor: pointer; border-radius: 6px; }
+    nav button.active, nav button:hover { background: var(--accent); color: var(--bg); }
+    .container { max-width: 600px; margin: 30px auto; padding: 0 15px; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .card { background: var(--card); padding: 25px; border-radius: 12px; border: 1px solid #334155; margin-bottom: 20px; }
+    h1, h2, h3 { color: var(--accent); margin-top: 0; }
+    label { display: block; margin: 12px 0 4px; font-size: 14px; color: var(--muted); }
+    input, select { width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #475569; background: var(--bg); color: #fff; box-sizing: border-box; }
+    .btn { width: 100%; padding: 12px; border: none; border-radius: 6px; background: var(--accent); color: var(--bg); font-weight: bold; cursor: pointer; margin-top: 15px; }
+    .btn-secondary { background: transparent; border: 1px solid #475569; color: var(--text); margin-top: 8px; }
+    .hidden { display: none; }
+    .alert { padding: 12px; border-radius: 6px; margin-top: 15px; font-size: 14px; text-align: center; }
+    .alert.error { background: #7f1d1d; color: #fca5a5; }
+    .alert.success { background: #14532d; color: #86efac; }
+    .balance { background: var(--bg); border: 2px dashed var(--accent); padding: 12px; text-align: center; border-radius: 6px; font-size: 24px; font-weight: bold; }
+    .req-item { background: var(--bg); padding: 12px; border-radius: 6px; border: 1px solid #334155; display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1 class="hero-title">Lokesh <span>Surampudi</span></h1>
-    <p class="hero-subtitle">Results-driven, individual strength coaching built entirely around your lifestyle and performance metrics.</p>
-    <a href="#booking-portal" class="btn">Book Scheduled Session</a>
-  </header>
+  <nav>
+    <button onclick="tab('home')" id="n-home" class="active">Vision</button>
+    <button onclick="tab('services')" id="n-services">Services</button>
+    <button onclick="tab('portal')" id="n-portal">Portal Desk</button>
+    <button onclick="tab('contact')" id="n-contact">Contact</button>
+  </nav>
 
   <div class="container">
-    <h2 class="section-title">Coaching Options & Programs</h2>
     
-    <div class="pricing-grid">
-      <!-- Plan 1 -->
-      <div class="price-card">
-        <h3 class="plan-name">Single Assessment</h3>
-        <div class="plan-price">₹1,500 <span>/ session</span></div>
-        <ul class="features-list">
-          <li>Movement pattern screen</li>
-          <li>Initial physical capacity test</li>
-          <li>Custom goals roadmap definition</li>
-        </ul>
-        <a href="https://wa.me." target="_blank" class="btn" style="background: transparent; border: 2px solid #334155; color: white;">Inquire Now</a>
-      </div>
-
-      <!-- Plan 2 (Featured 12 Session Tracker Package) -->
-      <div class="price-card featured">
-        <div class="badge">Most Popular</div>
-        <h3 class="plan-name">Monthly Transformation</h3>
-        <div class="plan-price">₹12,000 <span>/ month</span></div>
-        <ul class="features-list">
-          <li><strong>12 Loaded Custom Sessions</strong></li>
-          <li>Direct calendar reservation code</li>
-          <li>Progress metric auditing</li>
-          <li>Nutritional guidance framework</li>
-        </ul>
-        <a href="https://wa.me." target="_blank" class="btn">Buy Package</a>
+    <!-- NAVIGATION TAB 1: HOME & VISION -->
+    <div id="p-home" class="page active">
+      <div class="card">
+        <h1>Coaching Philosophy</h1>
+        <p>A precision performance model combining progressive tracking mechanics and autoregulatory scheduling guidelines built entirely around individual athletic metrics.</p>
       </div>
     </div>
 
-    <!-- Booking Portal Section -->
-    <h2 class="section-title" id="booking-portal">Client Scheduling Center</h2>
-    <div class="portal-section">
-      <!-- Integrated Google Web App Module -->
-      <iframe src="https://script.google.com/macros/s/AKfycbwd5vTo5niUl35KpSvKJyVJju0bU-6UUAdQcUY1mbTRcxH24vrLvK2wxop2ninBUGTvuw/exec"></iframe>
+    <!-- NAVIGATION TAB 2: SERVICES SELECTIONS -->
+    <div id="p-services" class="page">
+      <div class="card">
+        <h1>Available Options</h1>
+        <h3>1. Biomechanical Screen</h3>
+        <p>Comprehensive baseline tracking profile assessment. Cost: ₹1,500</p>
+        <h3>2. 12-Session Management Plan</h3>
+        <p>12 custom private strength coaching slots loaded directly into your login account. Cost: ₹12,000</p>
+      </div>
     </div>
+
+    <!-- NAVIGATION TAB 3: CONTACT FORM CARDS -->
+    <div id="p-contact" class="page">
+      <div class="card">
+        <h1>Contact Hotline</h1>
+        <p>Location Base: Premium Studio Facility | Narsingi, Hyderabad</p>
+        <a href="https://wa.me/916305286448" class="btn" target="_blank" style="background:#22c55e; color:white; text-decoration:none; display:block; text-align:center;">Connect on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- NAVIGATION TAB 4: UNIFIED ROUTING PORTAL -->
+    <div id="p-portal" class="page">
+      
+      <!-- SUB-ROUTER VIEW A: CHOOSE PORTAL OPTION -->
+      <div id="sub-landing" class="card">
+        <h2>Booking & Identity Desk</h2>
+        <button class="btn" onclick="sub('login')">Client Login</button>
+        <button class="btn btn-secondary" onclick="sub('register')">Register New Profile</button>
+        <button class="btn btn-secondary" style="border-color:#475569;" onclick="sub('admin')">Admin Terminal</button>
+      </div>
+
+      <!-- SUB-ROUTER VIEW B: REGISTER ACC PANEL -->
+      <div id="sub-register" class="card hidden">
+        <h2>Register Profile</h2>
+        <label>Email Address</label>
+        <input type="email" id="r-email" placeholder="client@example.com">
+        <label>Create 4-Digit Entry PIN</label>
+        <input type="password" id="r-pin" placeholder="1234">
+        <button class="btn" onclick="goReg()">Confirm Registry</button>
+        <button class="btn btn-secondary" onclick="sub('landing')">Back</button>
+      </div>
+
+      <!-- SUB-ROUTER VIEW C: LOGIN PANEL -->
+      <div id="sub-login" class="card hidden">
+        <h2>Client Entry</h2>
+        <label>Account Email</label>
+        <input type="email" id="l-email" placeholder="client@example.com">
+        <label>PIN Code</label>
+        <input type="password" id="l-pin" placeholder="••••">
+        <button class="btn" onclick="goLog()">Enter Portal</button>
+        <button class="btn btn-secondary" onclick="sub('landing')">Back</button>
+      </div>
+
+      <!-- SUB-ROUTER VIEW D: CLIENT RUNTIME CONTAINER -->
+      <div id="sub-dashboard" class="card hidden">
+        <h3>Dashboard Profile: <span id="user-tag" style="color:white;">User</span></h3>
+        <div class="balance" id="user-bal">0</div>
+        <p style="text-align:center; font-size:12px; margin-bottom:20px;">Loaded Classes Left</p>
+
+        <!-- MANUAL PAYMENT LINK ELEMENT -->
+        <div style="background:#0f172a; padding:15px; border-radius:8px; margin-bottom:15px;">
+          <h4 style="margin:0 0 5px 0;">Request Session Refills</h4>
+          <select id="p-package">
+            <option value="12-Session Transformation">12-Session Transformation Plan</option>
+            <option value="Single Assessment">Single Assessment Session</option>
+          </select>
+          <button class="btn" style="padding:6px; font-size:13px;" onclick="goPayNotify()">Notify Payment Sent</button>
+        </div>
+
+        <h3>Lock Booking Slot</h3>
+        <label>Choose Date</label>
+        <input type="date" id="b-date">
+        <label>Target Training Hour</label>
+        <select id="b-time">
+          <option value="06:00">06:00 AM</option>
+          <option value="07:00">07:00 AM</option>
+          <option value="17:00">05:00 PM</option>
+          <option value="18:00">06:00 PM</option>
+        </select>
+        <button class="btn" onclick="goBook()">Confirm Appointment</button>
+        <button class="btn btn-secondary" onclick="sub('landing')">Log Out</button>
+      </div>
+
+      <!-- SUB-ROUTER VIEW E: ADMIN CONTROL ROOM -->
+      <div id="sub-admin" class="card hidden">
+        <h2>Admin Console</h2>
+        <label>Master Security Key</label>
+        <input type="password" id="a-pass">
+        <button class="btn" onclick="goAdminLog()">Access Queues</button>
+        <button class="btn btn-secondary" onclick="sub('landing')">Back</button>
+      </div>
+
+      <div id="sub-admin-dash" class="card hidden">
+        <h3>Pending Verifications</h3>
+        <div id="admin-feed">
+          <p style="font-style:italic; color:var(--muted); text-align:center;">Queue completely clear.</p>
+        </div>
+        <button class="btn btn-secondary" onclick="sub('landing')">Close Dashboard</button>
+      </div>
+
+      <div id="alert-box" class="alert hidden"></div>
+    </div>
+
   </div>
 
-  <footer>
-    <p>&copy; 2026 Lokesh Surampudi Coaching. All Rights Reserved. Managed via Google Automation System.</p>
-  </footer>
+  <script>
+    function tab(id) {
+      document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+      document.querySelectorAll('nav button').forEach(function(b) { b.classList.remove('active'); });
+      
+      var pageEl = document.getElementById('p-' + id);
+      var navEl = document.getElementById('n-' + id);
+      if(pageEl) pageEl.classList.add('active');
+      if(navEl) navEl.classList.add('active');
+      msg('', false, true);
+    }
 
+    function sub(id) {
+      var panels = ['sub-landing', 'sub-register', 'sub-login', 'sub-dashboard', 'sub-admin', 'sub-admin-dash'];
+      panels.forEach(function(p) { 
+        var el = document.getElementById(p);
+        if(el) el.classList.add('hidden'); 
+      });
+      msg('', false, true);
+      
+      var targetId = (id === 'landing') ? 'sub-landing' : 'sub-' + id;
+      var targetEl = document.getElementById(targetId);
+      if(targetEl) targetEl.classList.remove('hidden');
+    }
+
+    function msg(txt, isErr, hide) {
+      var b = document.getElementById('alert-box');
+      if(!b) return;
+      if(hide) { b.className = "alert hidden"; return; }
+      b.innerText = txt;
+      b.className = "alert " + (isErr ? "error" : "success");
+    }
+
+    function goReg() {
+      var e = document.getElementById('r-email').value;
+      var p = document.getElementById('r-pin').value;
+      if(!e || !p) { msg("Inputs cannot remain blank.", true); return; }
+      msg("Saving data variables to ledger...", false);
+      
+      google.script.run.withSuccessHandler(function(res) {
+        if(res.success) {
+          msg(res.message, false);
+          document.getElementById('r-email').value = '';
+          document.getElementById('r-pin').value = '';
+          setTimeout(function() { sub('login'); }, 1500);
+        } else { msg(res.message, true); }
+      }).registerClient(e, p);
+    }
+
+    var activeUser = "";
+    function goLog() {
+      var e = document.getElementById('l-email').value;
+      var p = document.getElementById('l-pin').value;
+      msg("Reading credentials data vectors...", false);
+      
+      google.script.run.withSuccessHandler(function(res) {
+        if(res.success) {
+          activeUser = res.email;
+          document.getElementById('user-tag').innerText = res.email;
+          document.getElementById('user-bal').innerText = res.remaining;
+          sub('dashboard');
+          document.getElementById('b-date').min = new Date().toISOString().split('T');
+        } else { msg(res.message, true); }
+      }).verifyClient(e, p);
+    }
+
+    function goPayNotify() {
+      var pk = document.getElementById('p-package').value;
+      msg("Filing validation request parameters...", false);
+      google.script.run.withSuccessHandler(function(res) {
+        msg(res.message, false);
+      }).submitPaymentRequest(activeUser, pk);
+    }
+
+    function goBook() {
+      var d = document.getElementById('b-date').value;
+      var t = document.getElementById('b-time').value;
+      if(!d || !t) { msg("Complete entry rules completely.", true); return; }
+      msg("Reserving session window layout...", false);
+      
+      google.script.run.withSuccessHandler(function(res) {
+        if(res.success) {
+          msg(res.message, false);
+          document.getElementById('user-bal').innerText = res.remaining;
+        } else { msg(res.message, true); }
+      }).bookSession(activeUser, d, t);
+    }
+
+    var currentAdminPass = "";
+    function goAdminLog() {
+      var p = document.getElementById('a-pass').value;
+      msg("Authenticating encrypted admin signature...", false);
+      
+      google.script.run.withSuccessHandler(function(res) {
+        if(res.success) {
+          currentAdminPass = p;
+          drawAdminView(res.pendingRequests);
+          sub('admin-dash');
+        } else { msg(res.message, true); }
+      }).verifyAdmin(p);
+    }
+
+    function drawAdminView(arr) {
+      var div = document.getElementById('admin-feed');
+      if(!div) return;
+      if(!arr || arr.length === 0) {
+        div.innerHTML = '<p style="font-style:italic; color:var(--muted); text-align:center;">Queue completely clear.</p>';
+        return;
+      }
+      var blocks = "";
+      arr.forEach(function(i) {
+        blocks += '<div class="req-item">' +
+          '<div style="text-align:left;">' +
+            '<div style="font-weight:bold; font-size:14px; color:white;">' + i.email + '</div>' +
+            '<div style="font-size:11px; color:var(--accent);">' + i.package + '</div>' +
+          '</div>' +
+          '<div>' +
+            '<select id="load-' + i.rowId + '" style="width:55px; padding:2px; display:inline-block; margin-right:4px;">' +
+              '<option value="12">12</option>' +
+              '<option value="1">1</option>' +
+            </select>' +
+            '<button onclick="handleApprove(' + i.rowId + ', '' + i.email + '')" style="background:#22c55e; border:none; padding:4px 10px; font-weight:bold; border-radius:4px; cursor:pointer;">Inject</button>' +
+          '</div>' +
+        '</div>';
+      });
+      div.innerHTML = blocks;
+    }
+
+    function handleApprove(row, em) {
+      var amt = document.getElementById('load-' + row).value;
+      msg("Injecting class token packages...", false);
+      
+      google.script.run.withSuccessHandler(function(res) {
+        if(res.success) {
+          msg(res.message, false);
+          google.script.run.withSuccessHandler(function(fresh) {
+            drawAdminView(fresh.pendingRequests);
+          }).verifyAdmin(currentAdminPass);
+        } else { msg(res.message, true); }
+      }).approvePayment(row, em, amt);
+    }
+  </script>
 </body>
 </html>
